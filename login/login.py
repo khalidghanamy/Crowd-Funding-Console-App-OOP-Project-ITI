@@ -1,7 +1,7 @@
     
-from user.create_user import create_user
-
-
+# from user.create_user import create_user
+from user.user_class import User
+user = User()
 def login(user_connection,user):
 
     print("""
@@ -30,7 +30,7 @@ def login(user_connection,user):
             else:
                 continue
         if  res == "2":
-            registered = create_user(user_connection,user)
+            registered = user.create_user(user_connection,user)
             if registered:
                 
                 print(" go to login ==> ")

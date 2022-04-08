@@ -1,6 +1,6 @@
 
 from connection.connectionClass import Data_base
-from project.create_project import create_project
+# from project.create_project import create_project
 from project.project_Class import Project
 crud_minu_list = """ 
 ====================
@@ -31,7 +31,7 @@ def menu(connection,user_email,project):
                 print(user_email)
                 project.get_all_data(connection,user_email)
             if res == "2":
-                create_project(connection,project,user_email)
+                project.create_project(connection,user_email)
             if res == "3":
                 projects_number= connection.get_all_data(user_email)
                 project_id = input("enter project id to edite  : ")

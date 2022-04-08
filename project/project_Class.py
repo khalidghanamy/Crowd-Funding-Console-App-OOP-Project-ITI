@@ -1,7 +1,6 @@
 
 from ast import literal_eval
 from datetime import datetime
-from connection import connectionClass
 
 
 
@@ -138,3 +137,50 @@ class Project:
     
         data = [title,details,total_target,start_time,end_time]
         return data
+
+    def create_project(self,connection,user_email):
+        data =True
+        
+        while True:
+            
+
+            
+            
+            title = input("Enter title : ")
+            data = self.project_title(title)
+            if data == False:
+                continue
+            details = input("Enter details : ")
+            data = self.project_details(details)
+            if data == False:
+                continue
+            total_target = input("Enter total_target : ")
+            data = self.project_total_target(total_target)
+            if data == False:
+                continue
+            start_time = input("Enter start_time : ")
+            data = self.project_start_time(start_time)
+            if data == False:
+                continue
+            end_time = input("Enter end_time : ")
+            data = self.project_end_time(end_time)
+            
+            if data == False:
+                continue
+            else: 
+                self.owner_email = user_email 
+                
+                self.project_id = self.project_id_generator(connection)
+                
+                break
+            
+        project_data = self.save_project()
+        
+        if project_data:
+            print("created successfully ")
+            connection.create(project_data)
+            return True
+            
+        else:
+            return False
+        
