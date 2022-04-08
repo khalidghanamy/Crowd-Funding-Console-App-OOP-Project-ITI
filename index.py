@@ -5,7 +5,6 @@ from tabnanny import check
 from venv import create
 from login.login import login
 from crud_menu.menu import menu
-from user.create_user import create_user
 from user.user_class import User
 from project.project_Class import Project
 from connection.connectionClass import Data_base

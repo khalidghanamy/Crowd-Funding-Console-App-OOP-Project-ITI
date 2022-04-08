@@ -1,5 +1,4 @@
     
-# from user.create_user import create_user
 from user.user_class import User
 user = User()
 def login(user_connection,user):
